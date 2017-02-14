@@ -1,1 +1,6 @@
 <h1>Menu</h1>
+<div class="btn-group">
+	<% @sections.each do |section| %>
+		<%= link_to section.name, menu_path(section_id: section.id), class: "btn #{params[:section_id] == section.id.to_s ? 'btn-primary' : 'btn-secondary'}"  %>
+	<% end %>
+</div>
