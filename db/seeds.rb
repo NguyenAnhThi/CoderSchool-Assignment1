@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 if Section.count == 0
 	puts "Seeding section data..."
-	%w(Breakfash Lunch Dinner Drinks).each do |name|
+	%w(Breakfast Lunch Dinner Drinks).each do |name|
 		Section.create!(name: name)
 	end
 	
