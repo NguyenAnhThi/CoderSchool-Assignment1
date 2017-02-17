@@ -12,5 +12,5 @@ if Section.count == 0
 	end
 	
 else
-	puts "You already have some section data"
+  puts "You already have some section data"
 end

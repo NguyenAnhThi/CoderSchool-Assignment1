@@ -1,0 +1,12 @@
+<h1>Order for <%= @item.name %></h1>
+
+<%= form_for @order, url: orders_path(food_item_id: @item.id) do |f| %>
+    <% if @order.errors.present? %>
+        <div class="alert alert-danger"><%= @order.errors.full_messages.to_sentence %></div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :quantity %>
+      <%= f.number_field :quantity, class: 'form-control' %>
+    </div>
+    <%= f.submit nil, class: 'btn btn-primary' %>
+<% end %>
