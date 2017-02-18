@@ -1,6 +1,13 @@
-<h1>Welcome To Ruby Restaurant</h1>
-
-<div class="jumbotron hero">
-	<%= link_to "Menu", menu_path, class: 'btn btn-secondary' %>
-	<%= link_to "Contact US", contact_us_path, class: 'btn btn-secondary'  %>
+<div class="jumbotron" style="text-align: center">
+  <h1 class="display-4">Welcome To Ruby Restaurant!</h1>
+  <br>
+    <img src="<%= asset_path('restaurant.jpg') %>" class="img-fluid">
+  <br>
+  <br>
+  <hr class="my-4">
+  <br>
+  <p class="lead">
+    <%= link_to "Menu", menu_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to "Contact US", contact_us_path, class: 'btn btn-primary btn-lg' %>
+  </p>
 </div>

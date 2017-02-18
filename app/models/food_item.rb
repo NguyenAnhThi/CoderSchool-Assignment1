@@ -3,6 +3,6 @@ class FoodItem < ApplicationRecord
   validates :name, :price, presence: true
   has_many :orders, dependent: :destroy
   def image_url_or_default
-  	image_url.presence || "http://loremflickr.com/320/240/#{name.gsub(' ', '')}"
+  	image_url.presence || "http://loremflickr.com/640/480/#{name.gsub(' ', '')}"
   end
 end

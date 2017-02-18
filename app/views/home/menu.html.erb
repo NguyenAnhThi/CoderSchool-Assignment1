@@ -14,15 +14,12 @@
         <%= link_to 'Price: High -> Low', menu_path(section_id: params[:section_id], :sort_by => 'price_high_to_low'), class: 'dropdown-item' %>
         <%= link_to 'Price: Low -> High', menu_path(section_id: params[:section_id], :sort_by => 'price_low_to_high'), class: 'dropdown-item' %>
       </div>
-      <%= form_tag menu_path, method: 'get', class: 'form-inline my-2 my-lg-0' do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search", class: 'form-control mr-sm-2' %>
-          <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
-      <% end %>
+
     </div>
   </div>
 </div>
 
-<div class="row">
+<div class="row table-responsive">
   <table class="table">
     <thead>
     <tr>
@@ -36,9 +33,13 @@
     <tbody>
     <% @food_items.each do |item| %>
         <tr>
-          <td><%= item.name %></td>
+          <td> <%= link_to item.name, food_item_path(item) %>  </td>
           <td><%= number_to_currency item.price %></td>
-          <td><%= image_tag item.image_url_or_default, width: '160', height: '120' %></td>
+          <td>
+            <a href="<%= food_item_path(item) %>">
+              <%= image_tag item.image_url_or_default, width: '160', height: '120' %>
+            </a>
+          </td>
           <td><%= link_to "Add to order", new_food_item_order_path(food_item_id: item.id) %></td>
         </tr>
     <% end %>

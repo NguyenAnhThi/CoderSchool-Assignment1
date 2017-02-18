@@ -2,7 +2,8 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <h3><%= link_to "RubyRestaurant", root_path %></h3>
+  <img src="<%= asset_path('logo-ruby.png') %>" alt="ruby" width="30" style="margin-bottom: 10px;"><h4><%= link_to "RubyRestaurant", root_path, style: "color:     #E4001B
+" %></h4>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -12,6 +13,9 @@
         <%= link_to "Contact US", contact_us_path, class: "nav-link" %>
       </li>
     </ul>
-
+    <%= form_tag menu_path, method: 'get', class: 'form-inline my-2 my-lg-0' do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search", class: 'form-control mr-sm-2' %>
+        <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
   </div>
 </nav>
