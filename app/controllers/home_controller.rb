@@ -11,7 +11,6 @@ class HomeController < ApplicationController
       @food_items = FoodItem.all
     end
 
-
     if params[:sort_by]
       case params[:sort_by]
         when "name_a_to_z"
@@ -27,8 +26,8 @@ class HomeController < ApplicationController
       end
     end
 
-    if params[:sort_column]
-      @food_items = @food_items.order("#{params[:sort_column]} #{params[:sort_direction]}")
+    if params[:search]
+      @food_items = @food_items.where "lower(name) LIKE lower(?)", '%' + params[:search] + '%'
     end
   end
 

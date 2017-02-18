@@ -1,42 +1,48 @@
 <h1>Menu</h1>
-<div class="btn-group">
-  <% @sections.each do |section| %>
-      <%= link_to section.name, menu_path(section_id: section.id), class: "btn #{params[:section_id] == section.id.to_s ? 'btn-primary' : 'btn-secondary'}" %>
-  <% end %>
-  <div class="btn-group" role="group">
-    <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Sort by
-    </button>
-    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <%= link_to 'Name: A -> Z', menu_path(section_id: params[:section_id], :sort_by => 'name_a_to_z'), class: 'dropdown-item' %>
-      <%= link_to 'Name: Z -> A', menu_path(section_id: params[:section_id], :sort_by => 'name_z_to_a'), class: 'dropdown-item' %>
-      <%= link_to 'Price: High -> Low', menu_path(section_id: params[:section_id], :sort_by => 'price_high_to_low'), class: 'dropdown-item' %>
-      <%= link_to 'Price: Low -> High', menu_path(section_id: params[:section_id], :sort_by => 'price_low_to_high'), class: 'dropdown-item' %>
+<div class="row">
+  <div class="btn-group">
+    <% @sections.each do |section| %>
+        <%= link_to section.name, menu_path(section_id: section.id), class: "btn #{params[:section_id] == section.id.to_s ? 'btn-primary' : 'btn-secondary'}" %>
+    <% end %>
+    <div class="btn-group" role="group">
+      <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort by
+      </button>
+      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <%= link_to 'Name: A -> Z', menu_path(section_id: params[:section_id], :sort_by => 'name_a_to_z'), class: 'dropdown-item' %>
+        <%= link_to 'Name: Z -> A', menu_path(section_id: params[:section_id], :sort_by => 'name_z_to_a'), class: 'dropdown-item' %>
+        <%= link_to 'Price: High -> Low', menu_path(section_id: params[:section_id], :sort_by => 'price_high_to_low'), class: 'dropdown-item' %>
+        <%= link_to 'Price: Low -> High', menu_path(section_id: params[:section_id], :sort_by => 'price_low_to_high'), class: 'dropdown-item' %>
+      </div>
+      <%= form_tag menu_path, method: 'get', class: 'form-inline my-2 my-lg-0' do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search", class: 'form-control mr-sm-2' %>
+          <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
     </div>
   </div>
-
 </div>
 
-<table class="table">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Image</th>
-    <th>Add to order</th>
+<div class="row">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Add to order</th>
 
-  </tr>
-  </thead>
-  <tbody>
-  <% @food_items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= number_to_currency item.price %></td>
-        <td><%= image_tag item.image_url_or_default, width: '160', height: '120' %></td>
-        <td><%= link_to "Add to order", new_food_item_order_path(food_item_id: item.id) %></td>
-      </tr>
-  <% end %>
-  </tbody>
-  </div>
-</table>
+    </tr>
+    </thead>
+    <tbody>
+    <% @food_items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= number_to_currency item.price %></td>
+          <td><%= image_tag item.image_url_or_default, width: '160', height: '120' %></td>
+          <td><%= link_to "Add to order", new_food_item_order_path(food_item_id: item.id) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 

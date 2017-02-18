@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Create 4 section in menu: Breakfast, Lunch, Dinner, Drinks
 if Section.count == 0
   puts "Seeding section data..."
   %w(Breakfast Lunch Dinner Drinks).each do |name|
@@ -15,7 +17,7 @@ else
   puts "You already have some section data"
 end
 
-
+# Create 10 random food items
 10.times do |i|
   FoodItem.create!(
       :name => Faker::Food.ingredient,

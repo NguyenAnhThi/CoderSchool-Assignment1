@@ -6,7 +6,7 @@
     <% end %>
     <div class="form-group">
       <%= f.label :quantity %>
-      <%= f.number_field :quantity, class: 'form-control' %>
+      <%= f.number_field :quantity, class: 'form-control', min: '1' %>
     </div>
     <%= f.submit nil, class: 'btn btn-primary' %>
 <% end %>
