@@ -1,0 +1,39 @@
+<% if flash.any? %>
+    <div class="alert alert-success">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+      <%= flash[:success] %>
+    </div>
+<% end %>
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="text-primary"><%= @food_item.name %> </h3>
+    Order @<%= (DateTime.parse(@order.created_at.to_s)).strftime("%H:%M - %A %d %b %Y ") %>
+  </div>
+  <div class="card-block">
+    <p class="card-text"> Customer: <%= @order.customer_name %> </p>
+    <p class="card-text"> Phone: <%= @order.phone_number %> </p>
+    <p class="card-text"> Address: <%= @order.address %> </p>
+    <p class="card-text"> Price: <%= number_to_currency @food_item.price %> </p>
+    <p class="card-text"> Quantity: <%= @order.quantity %></p>
+    <% if @order.delivery %>
+        <p class="card-text"> Delivery fee: $1 </p>
+    <% end %>
+
+    <% if @order.coupon.eql? "CODERSCHOOL" %>
+        <p class="card-text"> Coupon code: <%= @order.coupon %> -> Discount 50%  </p>
+    <% end %>
+  </div>
+  <div class="card-footer">
+    <h3 class="text-success">
+      Total: <%= number_to_currency (@total) %>
+    </h3>
+  </div>
+</div>
+<br>
+<%= link_to 'Back', menu_path, class: 'btn btn-primary' %>
+
+
+
+
+

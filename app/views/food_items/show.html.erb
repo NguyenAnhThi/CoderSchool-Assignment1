@@ -24,7 +24,7 @@
       </p>
 
       <p class="card-text">
-        <%= link_to 'Edit', edit_food_item_path(@food_item) %> |
+        <%= link_to "Order", new_food_item_order_path(food_item_id: @food_item.id) %> |
         <%= link_to 'Back', menu_path %>
       </p>
     </div>
