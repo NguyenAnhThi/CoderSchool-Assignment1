@@ -21,7 +21,9 @@
     <% end %>
 
     <% if @order.coupon.eql? "CODERSCHOOL" %>
-        <p class="card-text"> Coupon code: <%= @order.coupon %> -> Discount 50%  </p>
+        <p class="card-text"> Coupon code: <%= @order.coupon %> -> <b class="text-primary">Discount 50%</b> </p>
+    <% elsif  !@order.coupon.to_s.empty?%>
+        <p class="card-text"> Coupon code: <i><%= @order.coupon %></i> -> <b class="text-danger">Invalid</b></p>
     <% end %>
   </div>
   <div class="card-footer">

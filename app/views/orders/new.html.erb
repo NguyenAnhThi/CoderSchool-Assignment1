@@ -1,44 +1,43 @@
 <h1>Order for <%= @item.name %></h1>
+<div class="card card-block">
+  <%= form_for [@item, @order] do |f| %>
+      <% if @order.errors.present? %>
+          <div class="alert alert-danger"><%= @order.errors.full_messages.to_sentence %></div>
+      <% end %>
 
-<%= form_for [@item, @order] do |f| %>
-    <% if @order.errors.present? %>
-        <div class="alert alert-danger"><%= @order.errors.full_messages.to_sentence %></div>
-    <% end %>
+      <div class="form-group">
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, class: 'form-control', min: '1' %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :quantity %>
-      <%= f.number_field :quantity, class: 'form-control', min: '1' %>
-    </div>
+      <div class='form-group'>
+        <%= f.label :Name %>
+        <%= f.text_field :customer_name, class: 'form-control' %>
+      </div>
 
-    <div class='form-group'>
-      <%= f.label :Name %>
-      <%= f.text_field :customer_name, class: 'form-control' %>
-    </div>
+      <div class='form-group'>
+        <%= f.label :Phone %>
+        <%= f.text_field :phone_number, class: 'form-control' %>
+      </div>
 
-    <div class='form-group'>
-      <%= f.label :Phone %>
-      <%= f.text_field :phone_number, class: 'form-control' %>
-    </div>
+      <div class='form-group'>
+        <%= f.label :Address %>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div>
 
-    <div class='form-group'>
-      <%= f.label :Address %>
-      <%= f.text_field :address, class: 'form-control' %>
-    </div>
+      <div class='form-group'>
+        <%= f.label "Coupon code" %>
+        <%= f.text_field :coupon, class: 'form-control' %>
+      </div>
 
-    <div class='form-group'>
-      <%= f.label "Coupon code" %>
-      <%= f.text_field :coupon, class:'form-control' %>
-    </div>
+      <div class='form-group'>
+        <%= f.check_box :delivery %>
+        <%= f.label :Delivery %>
+      </div>
 
-    <div class='form-group'>
-      <%= f.check_box :delivery %>
-      <%= f.label :Delivery %>
-    </div>
+      <br>
+      <%= f.submit "Add", class: 'btn btn-primary' %>
+      <%= link_to 'Back', menu_path, class: 'btn btn-secondary' %>
 
-
-
-    <br>
-    <%= f.submit "Add", class: 'btn btn-primary' %>
-    <%= link_to 'Back', menu_path, class: 'btn btn-secondary' %>
-
-<% end %>
+  <% end %>
+</div>

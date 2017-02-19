@@ -1,9 +1,36 @@
 @import "bootstrap";
+@import "home";
 
-.text-center{
+body{
+  background: no-repeat url(http://www.vietnamhai.com/uploads/Article/226.jpg) center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1{
+  color: white;
+}
+.jumbotron{
+  margin-top: 50px;
   text-align: center;
+  background: transparent;
+  color: white;
 }
 
-.text-right{
-  text-align: right;
+.container{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
+
+table{
+  font-weight: bolder;
+  font-weight: bolder;
+  vertical-align: middle;
+  a{
+    color: black;
+  }
+}
+
+
