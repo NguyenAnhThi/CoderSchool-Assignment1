@@ -1,12 +1,12 @@
 # RubyRestaurant Website
 
-**Coder Restaurant** is a Ruby on Rails restaurant website let users order foods.
+**RubyRestaurant** is a Ruby on Rails restaurant website let users order foods.
 
 Submitted by: **Nguyen Anh Thi**
 
 Time spent: **25** hours spent in total
 
-URL: **heroku-app-url**
+URL: **https://gentle-savannah-31200.herokuapp.com/menu**
 
 ## User Stories
 
